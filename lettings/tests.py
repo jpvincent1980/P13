@@ -36,12 +36,14 @@ class IndexNoLettingTest(TestCase):
 
 class LettingTest(TestCase):
     letting_title = "Nantes"
+    letting_number = 1
+    letting_zip_code = 44000
 
     @classmethod
     def setUpTestData(cls):
         # Creates an address and a letting for the tests
-        address = Address.objects.create(number=1,
-                                         zip_code=44000)
+        address = Address.objects.create(number=cls.letting_number,
+                                         zip_code=cls.letting_zip_code)
         cls.letting = Letting.objects.create(title=cls.letting_title,
                                              address=address)
 
