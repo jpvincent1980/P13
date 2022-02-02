@@ -1,7 +1,7 @@
 **/__pycache__
-*.pyc
-
 .idea
 Documents
 env
 Livrables
+*.pyc
+oc_lettings_site/.env
