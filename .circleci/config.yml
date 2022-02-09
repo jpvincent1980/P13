@@ -12,7 +12,6 @@ jobs:
       - checkout
       - python/install-packages:
           pkg-manager: pip
-
       - run:
           name: Run tests
           command: pytest
