@@ -42,6 +42,15 @@ jobs:
           name: Run flake8 linting
           command: flake8
 
+  deploy-heroku:
+    docker:
+      - image: cimg/python:3.10.2
+    steps:
+      - checkout
+      - heroku/deploy-via-git:
+          app-name: oc-jpvincent-p13
+          api-key: HEROKU_API_KEY
+
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
@@ -49,6 +58,5 @@ workflows:
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - build-and-test
-      # - heroku/deploy-via-git:
-          # app-name: oc-jpvincent-p13
-          # api-key: HEROKU_API_KEY
+      - deploy-heroku
+          
