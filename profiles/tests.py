@@ -17,7 +17,7 @@ class IndexTest(TestCase):
 
     def test_title(self):
         response = self.client.get(reverse('profiles:index'))
-        self.assertContains(response,"<title>Profiles</title>")
+        self.assertContains(response, "<title>Profiles</title>")
 
 
 class IndexNoProfileTest(TestCase):
@@ -31,7 +31,7 @@ class IndexNoProfileTest(TestCase):
 
     def test_title(self):
         response = self.client.get(reverse('profiles:index'))
-        self.assertContains(response,"<p>No profiles are available.</p>")
+        self.assertContains(response, "<p>No profiles are available.</p>")
 
 
 class ProfileTest(TestCase):
@@ -45,14 +45,15 @@ class ProfileTest(TestCase):
 
     def test_profile_status_code(self):
         response = self.client.get(reverse('profiles:profile',
-                                           kwargs={"username":ProfileTest.username}))
+                                           kwargs={"username": ProfileTest.username}))
         self.assertEqual(response.status_code, 200)
 
     def test_profile_template_used(self):
         response = self.client.get(reverse('profiles:profile',
-                                           kwargs={"username":ProfileTest.username}))
+                                           kwargs={"username": ProfileTest.username}))
         self.assertTemplateUsed(response, 'profiles/profile.html')
 
     def test_profile_title(self):
-        response = self.client.get(reverse('profiles:profile',kwargs={"username":ProfileTest.username}))
-        self.assertContains(response,"<title>"+ProfileTest.username+"</title>")
+        response = self.client.get(reverse('profiles:profile',
+                                           kwargs={"username": ProfileTest.username}))
+        self.assertContains(response, "<title>"+ProfileTest.username+"</title>")

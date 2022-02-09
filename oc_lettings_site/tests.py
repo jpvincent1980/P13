@@ -14,4 +14,4 @@ class IndexTest(TestCase):
 
     def test_title(self):
         response = self.client.get(reverse('index'))
-        self.assertContains(response,"<title>Holiday Homes</title>")
+        self.assertContains(response, "<title>Holiday Homes</title>")
