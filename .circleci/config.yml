@@ -39,9 +39,6 @@ jobs:
           # This assumes pytest is installed via the install-package step above
           command: pytest
       - run:
-          name: Run tests coverage
-          command: coverage
-      - run:
           name: Run flake8 linting
           command: flake8
 
