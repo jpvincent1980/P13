@@ -39,7 +39,10 @@ jobs:
           command: pytest
       - run:
           name: Run tests coverage
-          command: coverage html
+          command: coverage
+      - run:
+          name: Run flake8 linting
+          command: flake8
 
 
 # Invoke jobs via workflows
