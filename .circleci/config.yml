@@ -39,7 +39,7 @@ jobs:
           command: pytest
       - run:
           name: Run tests coverage
-          command: coverage report
+          command: coverage
 
 
 # Invoke jobs via workflows
