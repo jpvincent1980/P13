@@ -49,6 +49,6 @@ workflows:
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - build-and-test
-      - heroku/deploy-via-git:
-          app-name: oc-jpvincent-p13
-          api-key: HEROKU_API_KEY
+      # - heroku/deploy-via-git:
+          # app-name: oc-jpvincent-p13
+          # api-key: HEROKU_API_KEY
