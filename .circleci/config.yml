@@ -1,9 +1,10 @@
 version: 2.1
 
-comands:
-  steps:
-    - checkout
-    - run: pip install -r requirements.txt
+commands:
+  build:
+    steps:
+      - checkout
+      - run: pip install -r requirements.txt
 
 #  test:
 #
