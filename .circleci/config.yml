@@ -1,6 +1,6 @@
 version: 2.1
 
-description: Workflow de build, test, conteneurisation et déploiement
+description: Workflow de build, test, linting, conteneurisation et déploiement.
 
 display:
   source_url: https://github.com/jpvincent1980/P13
