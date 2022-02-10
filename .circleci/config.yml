@@ -4,8 +4,8 @@ display:
   source_url: https://github.com/jpvincent1980/P13
 jobs:
   build:
-    executor:
-      name: machine
+    machine:
+      image: ubuntu
     steps:
       - checkout
       - run: pip install -r requirements.txt
