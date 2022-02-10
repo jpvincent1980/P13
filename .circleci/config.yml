@@ -15,6 +15,7 @@ jobs:
       - checkout
       - python/install-packages:
           pkg-manager: pip
+          venv-cache: false
           pip-dependency-file: requirements.txt
 
 workflows:
