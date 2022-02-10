@@ -14,8 +14,12 @@ jobs:
     steps:
       - checkout
       - python/install-deps
-#          pip-dependency-file: requirements.txt
-#          pkg-manager: pip
+
+  test:
+    executor: python/default
+    steps:
+      - checkout
+      - python/test
 
 workflows:
   main:
