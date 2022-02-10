@@ -22,10 +22,27 @@ jobs:
 #workflows:
 #  jobs:
 #    - build
-#    - test
-#    - lint
-#    - containerize
-#    - deploy
+#    - test:
+#          requires:
+#            - build
+#    - lint:
+#          requires:
+#            - build
+#    - containerize:
+#          requires:
+#            - build
+#            - test
+#            - lint
+#          only: main
+#    - deploy:
+#          requires:
+#            - build
+#            - test
+#            - lint
+#          only: main
+
+
+
 
 #orbs:
 #  python: circleci/python@1.5.0
