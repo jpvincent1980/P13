@@ -13,7 +13,10 @@ jobs:
     executor: python/default
     steps:
       - checkout
-      - python/install-deps
+      - python/install-packages:
+          parameters:
+            pkg-manager: pip
+            pip-dependency-file: requirements.txt
 
 workflows:
   main:
