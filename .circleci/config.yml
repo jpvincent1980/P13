@@ -25,3 +25,4 @@ workflows:
   main:
     jobs:
       - build
+      - test
