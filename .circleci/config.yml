@@ -13,7 +13,7 @@ jobs:
     executor: python/default
     steps:
       - checkout
-      - python/install-packages:
+      - python/install-deps:
           pip-dependency-file: requirements.txt
           pkg-manager: pip
 
