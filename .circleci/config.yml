@@ -1,76 +1,21 @@
 version: 2.1
+
 description: Workflow de build, test, conteneurisation et déploiement
+
 display:
   source_url: https://github.com/jpvincent1980/P13
+
+orbs:
+  python: circleci/python@2.0.0
+
 jobs:
   build:
-    machine:
-      image: ubuntu-1604:202004-01
+    executor: python/default
     steps:
       - checkout
-      - run: pip install -r requirements.txt
+      - python/install-deps
 
-#  test:
-#
-#  lint:
-#
-#  containerize:
-#
-#  deploy:
-
-
-#workflows:
-#  jobs:
-#    - build
-#    - test:
-#          requires:
-#            - build
-#    - lint:
-#          requires:
-#            - build
-#    - containerize:
-#          requires:
-#            - build
-#            - test
-#            - lint
-#          only: main
-#    - deploy:
-#          requires:
-#            - build
-#            - test
-#            - lint
-#          only: main
-
-
-
-
-#orbs:
-#  python: circleci/python@1.5.0
-#  heroku: circleci/heroku@1.2.6
-#
-#jobs:
-#  build-and-test:
-#    docker:
-#      - image: cimg/python:3.10.2
-#    steps:
-#      - checkout
-#      - python/install-packages:
-#          pkg-manager: pip
-#      - run:
-#          name: Run tests
-#          command: pytest
-#      - run:
-#          name: Run flake8 linting
-#          command: flake8
-#
-#workflows:
-#  oc-lettings-workflow:
-#    jobs:
-#      - build-and-test
-#      - heroku/deploy-via-git:
-#          requires:
-#            - build-and-test
-#          filters:
-#            branches:
-#              only: main
-          
+workflows:
+  main:
+    jobs:
+      - build
