@@ -14,9 +14,8 @@ jobs:
     steps:
       - checkout
       - python/install-packages:
-          parameters:
-            pkg-manager: pip
-            pip-dependency-file: requirements.txt
+          pkg-manager: pip
+          pip-dependency-file: requirements.txt
 
 workflows:
   main:
