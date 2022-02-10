@@ -6,7 +6,7 @@ display:
   source_url: https://github.com/jpvincent1980/P13
 
 orbs:
-  python: circleci/python@2.0.0
+  python: circleci/python@0.3.2
 
 jobs:
   build:
@@ -16,7 +16,6 @@ jobs:
       - python/install-packages:
           pip-dependency-file: requirements.txt
           pkg-manager: pip
-          pypi-cache: false
 
 workflows:
   main:
