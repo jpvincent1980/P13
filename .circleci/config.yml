@@ -5,7 +5,7 @@ display:
 jobs:
   build:
     machine:
-      image: ubuntu
+      image: ubuntu-1604:202004-01
     steps:
       - checkout
       - run: pip install -r requirements.txt
