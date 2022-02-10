@@ -16,6 +16,7 @@ jobs:
       - python/install-packages:
           pip-dependency-file: requirements.txt
           pkg-manager: pip
+          pypi-cache: false
 
 workflows:
   main:
