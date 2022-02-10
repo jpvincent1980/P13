@@ -21,7 +21,8 @@ jobs:
     executor: python/default
     steps:
       - checkout
-      - python/test
+      - python/test:
+          test-tool: pytest
 
 workflows:
   main:
