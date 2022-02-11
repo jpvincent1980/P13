@@ -51,3 +51,6 @@ workflows:
             - build
             - test
             - lint
+          filters:
+            branches:
+              only: main
