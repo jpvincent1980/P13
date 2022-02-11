@@ -23,7 +23,7 @@ RUN pip install -r requirements.txt
 # Adding source code to the image
 COPY . .
 
-# Expose a port
+# Expose an external port
 EXPOSE $PORT
 
 # Run django server
