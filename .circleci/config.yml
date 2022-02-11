@@ -7,6 +7,7 @@ display:
 
 orbs:
   python: circleci/python@0.3.2
+  docker: circleci/docker@2.0.1
 
 jobs:
   build:
@@ -33,6 +34,16 @@ jobs:
       - run:
           command: flake8
 
+  containerize:
+    executor: docker
+    steps:
+      - docker/publish:
+          image: jpvincent1980/P13
+          tag: $CIRCLE_SHA1
+          auth:
+            username: jpvincent1980
+            password: $DOCKER_PASSWORD
+
 workflows:
   main:
     jobs:
@@ -43,3 +54,8 @@ workflows:
       - lint:
           requires:
             - build
+      - containerize:
+          requires:
+            - build
+            - test
+            - lint
