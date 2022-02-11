@@ -23,9 +23,7 @@ jobs:
       - checkout
       - python/load-cache
       - run:
-          command: |
-            pytest
-            coverage report
+          command: pytest
 
   lint:
     executor: python/default
