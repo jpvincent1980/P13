@@ -25,7 +25,6 @@ jobs:
       - run:
           command: |
             pytest
-            coverage run
             coverage report
 
   lint:
