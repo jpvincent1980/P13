@@ -35,10 +35,10 @@ jobs:
           command: flake8
 
   containerize:
-    executor: docker
+    docker:
+      - image: jpvincent1980/P13
     steps:
       - docker/publish:
-          image: jpvincent1980/P13
           tag: $CIRCLE_SHA1
           auth:
             username: jpvincent1980
