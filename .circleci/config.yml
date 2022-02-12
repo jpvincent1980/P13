@@ -10,14 +10,6 @@ orbs:
   docker: circleci/docker@2.0.1
   heroku: circleci/heroku@1.2.6
 
-commands:
-  containerize:
-    steps:
-      - run:
-          name: Test
-          command: |
-            ...
-
 jobs:
   build:
     executor: python/default
@@ -43,15 +35,6 @@ jobs:
       - run:
           command: flake8
 
-  containerize:
-    executor: docker/publish
-    steps:
-      - checkout
-      - containerize
-      - name: containerize
-      - image: jpvincent1980/p13
-      - tag: $CIRCLE_SHA1
-
   deploy:
     executor: heroku/default
     steps:
@@ -73,11 +56,10 @@ workflows:
       - lint:
           requires:
             - build
-#      - docker/publish:
-#          name: containerize
-#          image: jpvincent1980/p13
-#          tag: $CIRCLE_SHA1
-      - containerize:
+      - docker/publish:
+          name: containerize
+          image: jpvincent1980/p13
+          tag: $CIRCLE_SHA1
           requires:
             - build
             - test
