@@ -101,5 +101,5 @@ Indiquer l'utilisation des variables d'environnement contenues dans ce fichier e
 
 Il faut définir les variables d'environnement suivantes dans l'onglet Settings de votre application sur votre compte Heroku:
 
-ALLOWED_HOSTS = 127.0.0.1,localhost,oc-lettings-jpvincent.herokuapp.com 
+ALLOWED_HOSTS = 127.0.0.1,localhost,oc-lettings-jpvincent.herokuapp.com  
 SECRET_KEY = Votre clé secrète Django
