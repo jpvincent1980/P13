@@ -35,6 +35,13 @@ jobs:
       - run:
           command: flake8
 
+  containerize:
+    executor: docker/publish
+    steps:
+#      - name: containerize
+      - image: jpvincent1980/p13
+      - tag: $CIRCLE_SHA1
+
   deploy:
     executor: heroku/default
     steps:
@@ -56,10 +63,11 @@ workflows:
       - lint:
           requires:
             - build
-      - docker/publish:
-          name: containerize
-          image: jpvincent1980/p13
-          tag: $CIRCLE_SHA1
+#      - docker/publish:
+#          name: containerize
+#          image: jpvincent1980/p13
+#          tag: $CIRCLE_SHA1
+      - containerize:
           requires:
             - build
             - test
