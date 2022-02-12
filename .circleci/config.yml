@@ -15,6 +15,7 @@ commands:
     steps:
       - run:
           command: |
+            ...
 
 jobs:
   build:
