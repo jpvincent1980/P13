@@ -8,6 +8,7 @@ display:
 orbs:
   python: circleci/python@0.3.2
   docker: circleci/docker@2.0.1
+  heroku: circleci/heroku@1.2.6
 
 jobs:
   build:
@@ -34,6 +35,17 @@ jobs:
       - run:
           command: flake8
 
+  deploy:
+    executor: heroku/default
+    steps:
+      - checkout
+      # Install Heroku if not already installed
+      - heroku/install
+      # Deploy app to Heroku
+      - heroku/deploy-via-git:
+          app-name: $HEROKU_APP_NAME
+          api-key: HEROKU_API_KEY
+
 workflows:
   main:
     jobs:
@@ -52,6 +64,12 @@ workflows:
             - build
             - test
             - lint
+          filters:
+            branches:
+              only: main
+      - deploy:
+          requires:
+            - containerize
           filters:
             branches:
               only: main
