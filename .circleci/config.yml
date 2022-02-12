@@ -14,7 +14,7 @@ commands:
   containerize:
     steps:
       - run:
-          command:
+          command: |
 
 jobs:
   build:
