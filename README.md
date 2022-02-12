@@ -103,3 +103,4 @@ Il faut définir les variables d'environnement suivantes dans l'onglet Settings 
 
 ALLOWED_HOSTS = 127.0.0.1,localhost,oc-lettings-jpvincent.herokuapp.com  
 SECRET_KEY = Votre clé secrète Django
+SENTRY_DSN = Votre DSN Sentry
