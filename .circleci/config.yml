@@ -46,6 +46,7 @@ jobs:
   containerize:
     executor: docker/publish
     steps:
+      - containerize
       - name: containerize
       - image: jpvincent1980/p13
       - tag: $CIRCLE_SHA1
