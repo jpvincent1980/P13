@@ -9,6 +9,9 @@ from .models import Letting
 # bibendum id arcu. Vestibulum ante ipsum primis in faucibus orci luctus et
 # ultrices posuere cubilia curae; Cras eget scelerisque
 def index(request):
+    """
+    A FBV (Function-Based View) for the lettings list view.
+    """
     lettings_list = Letting.objects.all()
     context = {'lettings_list': lettings_list}
     return render(request, 'lettings/index.html', context)
@@ -29,6 +32,9 @@ def index(request):
 #  Donec quis nisi ligula. Integer vehicula tincidunt enim,
 #  ac lacinia augue pulvinar sit amet.
 def letting(request, letting_id):
+    """
+    A FBV (Function-Based View) for the lettings detail view.
+    """
     letting = Letting.objects.get(id=letting_id)
     context = {
         'title': letting.title,

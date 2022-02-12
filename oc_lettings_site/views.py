@@ -10,8 +10,14 @@ from django.shortcuts import render
 # Nullam elementum urna nisi, pellentesque iaculis enim cursus in.
 # Praesent volutpat porttitor magna, non finibus neque cursus id.
 def index(request):
+    """
+    A FBV (Function-Based View) for the index page.
+    """
     return render(request, 'index.html')
 
 
 def trigger_error(request):
+    """
+    A FBV (Function-Based View) triggering an error to test Sentry.
+    """
     return 1/0
