@@ -9,6 +9,9 @@ from .models import Profile
 # Fusc faucibus, urna quis auctor pharetra, massa dolor cursus neque,
 # quis dictum lacus d
 def index(request):
+    """
+    A FBV (Function-Based View) for the profiles list view.
+    """
     profiles_list = Profile.objects.all()
     context = {'profiles_list': profiles_list}
     return render(request, 'profiles/index.html', context)
@@ -20,6 +23,9 @@ def index(request):
 # it. Nam aliquam dignissim congue.
 # Pellentesque habitant morbi tristique senectus et netus et males
 def profile(request, username):
+    """
+    A FBV (Function-Based View) for the profiles detail view.
+    """
     profile = Profile.objects.get(user__username=username)
     context = {'profile': profile}
     return render(request, 'profiles/profile.html', context)
