@@ -1,4 +1,4 @@
-## Dernier statut CircleCI
+## Statut CircleCI
 
 [![CircleCI](https://circleci.com/gh/jpvincent1980/P13/tree/main.svg?style=svg)](https://circleci.com/gh/jpvincent1980/P13/tree/main)
 
@@ -81,3 +81,25 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 - Remplacer `which <my-command>` par `(Get-Command <my-command>).Path`
 
 ## Déploiement
+
+### Créer une image Docker de l'application (conteneurisation)
+
+Créer un fichier .env contenant les variables d'environnement ci-dessous:
+
+SECRET_KEY=Votre clé secrète Django  
+DEBUG=True  
+ALLOWED_HOSTS=127.0.0.1,localhost,oc-lettings-jpvincent.herokuapp.com  
+SENTRY_DSN=Votre DSN Sentry
+
+Les valeurs sont à renseigner sans " " ou ' '.
+
+Indiquer l'utilisation des variables d'environnement contenues dans ce fichier en ajoutant `--env-file /path/to/.env/file/.env` à la commande Docker
+
+`docker run -d -p 8000:8000 --env-file /path/to/.env/file/.env jpvincent1980/p13`
+
+### Envoi de l'image Docker de l'application sur Heroku
+
+Il faut définir les variables d'environnement suivantes dans l'onglet Settings de votre application sur votre compte Heroku:
+
+ALLOWED_HOSTS = 127.0.0.1,localhost,oc-lettings-jpvincent.herokuapp.com 
+SECRET_KEY = Votre clé secrète Django
