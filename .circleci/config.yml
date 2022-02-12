@@ -69,7 +69,7 @@ workflows:
               only: main
       - deploy:
           requires:
-            - docker/publish
+            - containerize
           filters:
             branches:
               only: main
