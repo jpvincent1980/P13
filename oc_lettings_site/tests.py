@@ -12,7 +12,7 @@ class IndexTest(TestCase):
         Tests that the view returns a 200 status code.
         """
         response = self.client.get(reverse('index'))
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 201)
 
     def test_template_used(self):
         """
