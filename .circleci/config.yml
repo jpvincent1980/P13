@@ -27,6 +27,13 @@ jobs:
       - run:
           command: pytest
 
+  coverage:
+    executor: python/default
+    steps:
+      - checkout
+      - run:
+          command: coverage report --fail-under=100
+
   lint:
     executor: python/default
     steps:
@@ -51,6 +58,9 @@ workflows:
     jobs:
       - build
       - test:
+          requires:
+            - build
+      - coverage:
           requires:
             - build
       - lint:
