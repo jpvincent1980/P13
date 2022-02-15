@@ -27,14 +27,6 @@ jobs:
       - run:
           command: pytest
 
-  coverage:
-    executor: python/default
-    steps:
-      - checkout
-      - run:
-          command: |
-            python -m coverage report --fail-under=100
-
   lint:
     executor: python/default
     steps:
@@ -67,20 +59,20 @@ workflows:
       - lint:
           requires:
             - build
-#      - docker/publish:
-#          name: containerize
-#          image: jpvincent1980/p13
-#          tag: $CIRCLE_SHA1
-#          requires:
-#            - build
-#            - test
-#            - lint
-#          filters:
-#            branches:
-#              only: main
-#      - deploy:
-#          requires:
-#            - containerize
-#          filters:
-#            branches:
-#              only: main
+      - docker/publish:
+          name: containerize
+          image: jpvincent1980/p13
+          tag: $CIRCLE_SHA1
+          requires:
+            - build
+            - test
+            - lint
+          filters:
+            branches:
+              only: main
+      - deploy:
+          requires:
+            - containerize
+          filters:
+            branches:
+              only: main
