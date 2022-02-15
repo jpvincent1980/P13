@@ -32,7 +32,8 @@ jobs:
     steps:
       - checkout
       - run:
-          command: coverage report --fail-under=100
+          command: |
+            coverage report --fail-under=100
 
   lint:
     executor: python/default
