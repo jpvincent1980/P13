@@ -1,7 +1,7 @@
 > ## Statut CircleCI
 > #### (développement -> branche "develop")
 
-[![CircleCI](https://circleci.com/gh/jpvincent1980/P13/tree/main.svg?style=svg)](https://circleci.com/gh/jpvincent1980/P13/tree/main)
+[![CircleCI](https://circleci.com/gh/jpvincent1980/P13/tree/develop.svg?style=svg)](https://circleci.com/gh/jpvincent1980/P13/tree/main)
 
 > ## Résumé
 
