@@ -1,12 +1,12 @@
-## Statut CircleCI
+> ## Statut CircleCI
 
 [![CircleCI](https://circleci.com/gh/jpvincent1980/P13/tree/main.svg?style=svg)](https://circleci.com/gh/jpvincent1980/P13/tree/main)
 
-## Résumé
+> ## Résumé
 
 Site web d'Orange County Lettings
 
-## Développement local
+> ## Développement local
 
 ### Prérequis
 
@@ -80,27 +80,74 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 - Pour activer l'environnement virtuel, `.\env\Scripts\Activate.ps1` 
 - Remplacer `which <my-command>` par `(Get-Command <my-command>).Path`
 
-## Déploiement
+### Créer manuellement un conteneur Docker de l'application
+
+L'application nécessite l'utilisation de variables d'environnement.  
+
+Ces variables d'environnement seront enregistrées dans un fichier nommé `.env` qui sera utilisé lors de la création du conteneur Docker.  
+
+Créez un fichier `.env` contenant les variables d'environnement ci-dessous:
+
+**SECRET_KEY**=*Votre clé secrète Django*  
+**DEBUG**=True  
+**ALLOWED_HOSTS**=127.0.0.1,localhost,*nomdevotreapplication.herokuapp.com*  
+**SENTRY_DSN**=*Le DSN Sentry de votre application.*
+
+Les valeurs sont à renseigner sans être entourées par " " ou ' '.
+
+Indiquez l'utilisation des variables d'environnement contenues dans ce fichier lors de la création du conteneur Docker en saisissant la commande ci-dessous depuis votre terminal:
+
+`docker run -d -p 8000:8000 --env-file /path/to/.env/file/.env <nomdevotreimageDocker>`
+
+### Envoyer manuellement l'image Docker de l'application sur Docker Hub
+
+Connectez-vous à votre compte Docker Hub depuis votre terminal en saisissant la commande ci-dessous:
+
+- Sous Windows -> `winpty docker login -u <votrelogin>`
+
+- Sous Mac/Linux -> `docker login -u <votrelogin>`
+
+Saisissez votre mot de passe Docker Hub lorsqu'il vous sera demandé.
+
+Une fois votre terminal connecté, saisissez la commande ci-dessous:
+
+`docker push <nomdevotreimageDocker>`
+
+Un repository est alors créé sur votre compte Docker Hub contenant votre image Docker. Ce repository est accessible à l'adresse ci-dessous:
+
+`https://hub.docker.com/repository/docker/<votreloginDockerHub>/<nomdevotreimageDocker>`
+
+### Déployer manuellement l'application sur Heroku
+
+Dans votre terminal, placez-vous dans le répertoire de l'application et saisissez la commande ci-dessous:
+
+`git push heroku main`
+
+> ## Déploiement
 
 ### Fonctionnement du déploiement
 
-Le déploiement de l'application OC-lettings se fait via un pipeline CI/CD sur CirceCI qui exécute l'application, l'englobe dans un container Docker qui est ensuite déployé sur Heroku.
+Le déploiement de l'application OC-lettings se fait via un pipeline CI/CD sur CircleCI qui exécute l'application, l'englobe dans un container Docker qui est ensuite déployé sur Heroku.
 
 ### Configuration requise au déploiement
 
-#### Installation de Docker
+* #### Installations
+
+  * #### Installation de Docker
 
 Installez Docker sur votre poste en suivant les instructions au lien ci-dessous:
 
 https://docs.docker.com/get-docker/
 
-#### Installation d'Heroku
+  * #### Installation d'Heroku
 
 Installez Heroku sur votre poste en suivant les instructions au lien ci-dessous:
 
 https://devcenter.heroku.com/articles/heroku-cli#install-the-heroku-cli
 
-#### Compte CircleCI
+* ##### Inscriptions
+
+  * #### Compte CircleCI
 
 Il est nécessaire de se connecter sur le site CircleCi à l'adresse suivante afin de pouvoir surveiller la progression du pipeline CI/CD et y apporter des modifications si nécessaire:
 
@@ -128,7 +175,7 @@ Les variables d'environnement de votre projet CircleCI sont paramétrables dans 
 **HEROKU_APP_NAME** = Le nom de votre application Heroku.   
 **SENTRY_DSN** = Le DSN Sentry de votre application.  
 
-#### Compte Docker Hub
+>   #### Compte Docker Hub
 
 Si vous ne disposez pas d'un compte Docker Hub, inscrivez-vous à l'adresse suivante:
 
@@ -199,46 +246,3 @@ Si la conteneurisation échoue, la prochaine et dernière étape n'est pas effec
 En cas de succès, le conteneur englobant l'application est déployé sur Heroku et la nouvelle version de celle-ci est disponible à l'adresse ci-dessous:
 
 `oc-lettings-jpvincent.herokuapp.com`
-
-### Créer manuellement un conteneur Docker de l'application
-
-L'application nécessite l'utilisation de variables d'environnement.  
-
-Ces variables d'environnement seront enregistrées dans un fichier nommé `.env` qui sera utilisé lors de la création du conteneur Docker.  
-
-Créez un fichier `.env` contenant les variables d'environnement ci-dessous:
-
-**SECRET_KEY**=*Votre clé secrète Django*  
-**DEBUG**=True  
-**ALLOWED_HOSTS**=127.0.0.1,localhost,*nomdevotreapplication.herokuapp.com*  
-**SENTRY_DSN**=*Le DSN Sentry de votre application.*
-
-Les valeurs sont à renseigner sans être entourées par " " ou ' '.
-
-Indiquez l'utilisation des variables d'environnement contenues dans ce fichier lors de la création du conteneur Docker en saisissant la commande ci-dessous depuis votre terminal:
-
-`docker run -d -p 8000:8000 --env-file /path/to/.env/file/.env <nomdevotreimageDocker>`
-
-### Envoyer manuellement l'image Docker de l'application sur Docker Hub
-
-Connectez-vous à votre compte Docker Hub depuis votre terminal en saisissant la commande ci-dessous:
-
-- Sous Windows -> `winpty docker login -u <votrelogin>`
-
-- Sous Mac/Linux -> `docker login -u <votrelogin>`
-
-Saisissez votre mot de passe Docker Hub lorsqu'il vous sera demandé.
-
-Une fois votre terminal connecté, saisissez la commande ci-dessous:
-
-`docker push <nomdevotreimageDocker>`
-
-Un repository est alors créé sur votre compte Docker Hub contenant votre image Docker. Ce repository est accessible à l'adresse ci-dessous:
-
-`https://hub.docker.com/repository/docker/<votreloginDockerHub>/<nomdevotreimageDocker>`
-
-### Déployer manuellement l'application sur Heroku
-
-Dans votre terminal, placez-vous dans le répertoire de l'application et saisissez la commande ci-dessous:
-
-`git push heroku main`
