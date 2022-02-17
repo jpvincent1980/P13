@@ -121,7 +121,8 @@ Un repository est alors créé sur votre compte Docker Hub contenant votre image
 
 Dans votre terminal, placez-vous dans le répertoire de l'application et saisissez la commande ci-dessous:
 
-`git push heroku main`
+`git push heroku main`  
+
 
 > ## Déploiement
 
@@ -131,21 +132,21 @@ Le déploiement de l'application OC-lettings se fait via un pipeline CI/CD sur C
 
 ### Configuration requise au déploiement
 
-* #### Installations
+### Installations
 
-  * #### Installation de Docker
+* #### Installation de Docker
 
 Installez Docker sur votre poste en suivant les instructions au lien ci-dessous:
 
 https://docs.docker.com/get-docker/
 
-  * #### Installation d'Heroku
+*  #### Installation d'Heroku
 
 Installez Heroku sur votre poste en suivant les instructions au lien ci-dessous:
 
 https://devcenter.heroku.com/articles/heroku-cli#install-the-heroku-cli
 
-* ##### Inscriptions
+### Inscriptions
 
   * #### Compte CircleCI
 
@@ -175,7 +176,7 @@ Les variables d'environnement de votre projet CircleCI sont paramétrables dans 
 **HEROKU_APP_NAME** = Le nom de votre application Heroku.   
 **SENTRY_DSN** = Le DSN Sentry de votre application.  
 
->   #### Compte Docker Hub
+* #### Compte Docker Hub
 
 Si vous ne disposez pas d'un compte Docker Hub, inscrivez-vous à l'adresse suivante:
 
@@ -185,9 +186,9 @@ Pour vous connecter à votre compte Docker Hub, rendez-vous au lien ci-dessous:
 
 https://login.docker.com/u/login
 
-Allez renseigner votre login et votre mot de passe Docker Hub dans les variables d'environnement de votre projet CircleCI avec respectivement les clés **DOCKER_LOGIN** et **DOCKER_PASSWORD**.
+Allez renseigner votre login et votre mot de passe Docker Hub dans les variables d'environnement de votre projet CircleCI avec respectivement les clés **DOCKER_LOGIN** et **DOCKER_PASSWORD**.  
 
-#### Compte Heroku
+* #### Compte Heroku
 
 Si vous ne disposez pas d'un compte Heroku, inscrivez-vous à l'adresse suivante:
 
@@ -211,7 +212,7 @@ Récupérez votre clé API en allant dans les paramètres de votre compte utilis
 
 Allez renseigner votre clé API et votre nom d'application Heroku dans les variables d'environnement de votre projet CircleCI, respectivement avec les clés **HEROKU_API_KEY** et **HEROKU_APP_NAME**.
 
-#### Compte Sentry
+* #### Compte Sentry
 
 Si vous ne disposez pas d'un compte Sentry, inscrivez-vous à l'adresse suivante:
 
