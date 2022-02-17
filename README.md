@@ -22,11 +22,11 @@ Dans le reste de la documentation sur le développement local, il est supposé q
 #### Cloner le repository
 
 - `cd /path/to/put/project/in`
-- `git clone https://github.com/OpenClassrooms-Student-Center/Python-OC-Lettings-FR.git`
+- `git clone https://github.com/jpvincent1980/P13.git`
 
 #### Créer l'environnement virtuel
 
-- `cd /path/to/Python-OC-Lettings-FR`
+- `cd /path/to/P13`
 - `python -m venv env`
 - `apt-get install python3-venv` (Si l'étape précédente comporte des erreurs avec un paquet non trouvé sur Ubuntu)
 - Activer l'environnement `source env/bin/activate`
@@ -38,7 +38,7 @@ Dans le reste de la documentation sur le développement local, il est supposé q
 
 #### Exécuter le site
 
-- `cd /path/to/Python-OC-Lettings-FR`
+- `cd /path/to/P13`
 - `source env/bin/activate`
 - `pip install --requirement requirements.txt`
 - `python manage.py runserver`
@@ -47,23 +47,23 @@ Dans le reste de la documentation sur le développement local, il est supposé q
 
 #### Linting
 
-- `cd /path/to/Python-OC-Lettings-FR`
+- `cd /path/to/P13`
 - `source env/bin/activate`
 - `flake8`
 
 #### Tests unitaires
 
-- `cd /path/to/Python-OC-Lettings-FR`
+- `cd /path/to/P13`
 - `source env/bin/activate`
 - `pytest`
 
 #### Base de données
 
-- `cd /path/to/Python-OC-Lettings-FR`
+- `cd /path/to/P13`
 - Ouvrir une session shell `sqlite3`
 - Se connecter à la base de données `.open oc-lettings-site.sqlite3`
 - Afficher les tables dans la base de données `.tables`
-- Afficher les colonnes dans le tableau des profils, `pragma table_info(Python-OC-Lettings-FR_profile);`
+- Afficher les colonnes dans le tableau des profils, `pragma table_info(P13_profile);`
 - Lancer une requête sur la table des profils, `select user_id, favorite_city from
   Python-OC-Lettings-FR_profile where favorite_city like 'B%';`
 - `.quit` pour quitter
