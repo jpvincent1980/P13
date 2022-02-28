@@ -20,4 +20,4 @@ def trigger_error(request):
     """
     A FBV (Function-Based View) triggering an error to test Sentry.
     """
-    return 1/0
+    return 1/1
