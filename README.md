@@ -248,5 +248,3 @@ Si la conteneurisation échoue, la prochaine et dernière étape n'est pas effec
 En cas de succès, le conteneur englobant l'application est déployé sur Heroku et la nouvelle version de celle-ci est disponible à l'adresse ci-dessous:
 
 `oc-lettings-jpvincent.herokuapp.com`
-
-Test
